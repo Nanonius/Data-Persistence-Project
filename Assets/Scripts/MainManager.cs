@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MainManager : MonoBehaviour
 
     public GameObject newHighscore;
     public GameObject menuButton;
+    public TextMeshProUGUI enteredName;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class MainManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                GameManager.Instance.gameActive = true;
                 m_Started = true;
                 float randomDirection = Random.Range(-1.0f, 1.0f);
                 Vector3 forceDir = new Vector3(randomDirection, 1, 0);
@@ -74,18 +77,52 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        menuButton.SetActive(true);
+        m_GameOver = true;
+        GameManager.Instance.gameActive = false;
         if (m_Points > GameManager.Instance.highscorePlayer5)
         {
             GameManager.Instance.highscore = m_Points;
             newHighscore.SetActive(true);
         }
-        menuButton.SetActive(true);
-        m_GameOver = true;
-        GameOverText.SetActive(true);
+        else
+        {
+            GameOverText.SetActive(true);
+        }
     }
 
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void PostHighscore()
+    {
+        if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer1)
+        {
+            GameManager.Instance.player1 = enteredName.text;
+            GameManager.Instance.highscorePlayer1 = GameManager.Instance.highscore;
+        }
+        else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer2)
+        {
+            GameManager.Instance.player2 = enteredName.text;
+            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscore;
+        }
+        else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer3)
+        {
+            GameManager.Instance.player3 = enteredName.text;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscore;
+        }
+        else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer4)
+        {
+            GameManager.Instance.player4 = enteredName.text;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscore;
+        }
+        else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer5)
+        {
+            GameManager.Instance.player5 = enteredName.text;
+            GameManager.Instance.highscorePlayer5 = GameManager.Instance.highscore;
+        }
+        SceneManager.LoadScene(2);
     }
 }

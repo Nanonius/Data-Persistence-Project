@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public float ballSpeed = 2.0f;
     public int highscore;
-    public string enteredName;
 
     //Highscore table
     public string player1;
@@ -25,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int highscorePlayer4;
     public int highscorePlayer5;
 
+    public bool gameActive;
+
     private void Awake()
     {
         if (Instance != null)
@@ -37,35 +38,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         Load();
-    }
-
-    public void PostHighscore()
-    {
-        if (highscore > highscorePlayer1)
-        {
-            player1 = enteredName;
-            highscorePlayer1 = highscore;
-        }
-        else if (highscore > highscorePlayer2)
-        {
-            player2 = enteredName;
-            highscorePlayer2 = highscore;
-        }
-        else if (highscore > highscorePlayer3)
-        {
-            player3 = enteredName;
-            highscorePlayer3 = highscore;
-        }
-        else if (highscore > highscorePlayer4)
-        {
-            player4 = enteredName;
-            highscorePlayer4 = highscore;
-        }
-        else if (highscore > highscorePlayer5)
-        {
-            player5 = enteredName;
-            highscorePlayer5 = highscore;
-        }
     }
 
     [System.Serializable]
