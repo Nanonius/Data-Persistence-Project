@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -28,10 +25,6 @@ public class GameManager : MonoBehaviour
     public int highscorePlayer4;
     public int highscorePlayer5;
 
-    //Main Menu
-    public GameObject startElements;
-    public GameObject difficulties;
-
     private void Awake()
     {
         if (Instance != null)
@@ -44,43 +37,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         Load();
-        startElements.SetActive(true);
-        difficulties.SetActive(false);
-    }
-
-    public void StartEasy()
-    {
-        ballSpeed = 2.0f;
-        SceneManager.LoadScene(1);
-    }
-
-    public void StartMedium()
-    {
-        ballSpeed = 3.0f;
-        SceneManager.LoadScene(1);
-    }
-
-    public void StartHard()
-    {
-        ballSpeed = 4.0f;
-        SceneManager.LoadScene(1);
-    }
-
-    public void ShowDifficulties()
-    {
-        startElements.SetActive(false);
-        difficulties.SetActive(true);
-    }
-
-    public void ExitGame()
-    {
-        Save();
-        //Save function
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#else
-            Application.Quit();
-#endif
     }
 
     public void PostHighscore()
