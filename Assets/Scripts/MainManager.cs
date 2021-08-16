@@ -13,7 +13,7 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public GameObject GameOverText;
-    
+
     private bool m_Started = false;
     private int m_Points;
     
@@ -26,6 +26,7 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameOverText.SetActive(false);
         menuButton.SetActive(false);
         newHighscore.SetActive(false);
         const float step = 0.6f;
@@ -62,7 +63,7 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && m_Points > GameManager.Instance.highscorePlayer5)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -94,6 +95,11 @@ public class MainManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void CheckAmountOfLetters()
+    {
+        //gameObject.GetComponent<TextMeshProUGUI>().text.Remove(7);
     }
 
     public void PostHighscore()
