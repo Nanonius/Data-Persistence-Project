@@ -18,10 +18,14 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    
+    public GameObject newHighscore;
+    public GameObject menuButton;
+
     // Start is called before the first frame update
     void Start()
     {
+        menuButton.SetActive(false);
+        newHighscore.SetActive(false);
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -50,7 +54,7 @@ public class MainManager : MonoBehaviour
                 forceDir.Normalize();
 
                 Ball.transform.SetParent(null);
-                Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
+                Ball.AddForce(forceDir * GameManager.Instance.ballSpeed, ForceMode.VelocityChange);
             }
         }
         else if (m_GameOver)
@@ -70,6 +74,12 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (m_Points > GameManager.Instance.highscorePlayer5)
+        {
+            GameManager.Instance.highscore = m_Points;
+            newHighscore.SetActive(true);
+        }
+        menuButton.SetActive(true);
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
