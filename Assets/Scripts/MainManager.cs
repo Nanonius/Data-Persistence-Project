@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -97,11 +95,6 @@ public class MainManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
-    }
-
-    public void CheckAmountOfLetters()
-    {
-        //gameObject.GetComponent<TextMeshProUGUI>().text.Remove(7);
     }
 
     public void PostHighscore()
