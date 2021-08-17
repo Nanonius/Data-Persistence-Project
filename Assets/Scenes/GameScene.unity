@@ -1034,8 +1034,9 @@ MonoBehaviour:
   BrickPrefab: {fileID: 897975713663390409, guid: 63f25b9733d2bcd4fa2ff6de1264c739, type: 3}
   LineCount: 6
   Ball: {fileID: 177912862}
+  bestScore: {fileID: 2078529056}
   ScoreText: {fileID: 188020406}
-  GameOverText: {fileID: 474497238}
+  gameOverText: {fileID: 474497238}
   newHighscore: {fileID: 1441217004}
   menuButton: {fileID: 1405597837}
   enteredName: {fileID: 92351310}
@@ -1494,7 +1495,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 7
+  m_CharacterLimit: 8
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:

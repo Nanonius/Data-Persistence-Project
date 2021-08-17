@@ -11,8 +11,9 @@ public class MainManager : MonoBehaviour
     public int LineCount = 6;
     public Rigidbody Ball;
 
+    public Text bestScore;
     public Text ScoreText;
-    public GameObject GameOverText;
+    public GameObject gameOverText;
 
     private bool m_Started = false;
     private int m_Points;
@@ -26,7 +27,8 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameOverText.SetActive(false);
+        bestScore.text = "Best Score : " + GameManager.Instance.player1 + " : " + GameManager.Instance.highscorePlayer1;
+        gameOverText.SetActive(false);
         menuButton.SetActive(false);
         newHighscore.SetActive(false);
         const float step = 0.6f;
@@ -88,7 +90,7 @@ public class MainManager : MonoBehaviour
         }
         else
         {
-            GameOverText.SetActive(true);
+            gameOverText.SetActive(true);
         }
     }
 
@@ -106,21 +108,53 @@ public class MainManager : MonoBehaviour
     {
         if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer1)
         {
+            //Move previous highscores down
+            GameManager.Instance.player4 = GameManager.Instance.player5;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
+            GameManager.Instance.player3 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player2 = GameManager.Instance.player3;
+            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscorePlayer3;
+            GameManager.Instance.player1 = GameManager.Instance.player2;
+            GameManager.Instance.highscorePlayer1 = GameManager.Instance.highscorePlayer2;
+
+            //Enter a new highscore
             GameManager.Instance.player1 = enteredName.text;
             GameManager.Instance.highscorePlayer1 = GameManager.Instance.highscore;
         }
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer2)
         {
+            //Move previous highscores down
+            GameManager.Instance.player4 = GameManager.Instance.player5;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
+            GameManager.Instance.player3 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player2 = GameManager.Instance.player3;
+            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscorePlayer3;
+
+            //Enter a new highscore
             GameManager.Instance.player2 = enteredName.text;
             GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscore;
         }
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer3)
         {
+            //Move previous highscores down
+            GameManager.Instance.player4 = GameManager.Instance.player5;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
+            GameManager.Instance.player3 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
+
+            //Enter a new highscore
             GameManager.Instance.player3 = enteredName.text;
             GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscore;
         }
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer4)
         {
+            //Move previous highscores down
+            GameManager.Instance.player4 = GameManager.Instance.player5;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
+
+            //Enter a new highscore
             GameManager.Instance.player4 = enteredName.text;
             GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscore;
         }
