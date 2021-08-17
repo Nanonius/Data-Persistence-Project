@@ -40,6 +40,22 @@ public class GameManager : MonoBehaviour
         Load();
     }
 
+    void ResetHighscores()
+    {
+        player1 = "Player";
+        player2 = "Player";
+        player3 = "Player";
+        player4 = "Player";
+        player5 = "Player";
+
+        highscorePlayer1 = 0;
+        highscorePlayer2 = 0;
+        highscorePlayer3 = 0;
+        highscorePlayer4 = 0;
+        highscorePlayer5 = 0;
+        Save();
+    }
+
     [System.Serializable]
     class SaveData
     {

@@ -65,7 +65,7 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && m_Points > GameManager.Instance.highscorePlayer5)
+            if (Input.GetKeyDown(KeyCode.Space) && gameOverText.activeInHierarchy)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -109,14 +109,14 @@ public class MainManager : MonoBehaviour
         if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer1)
         {
             //Move previous highscores down
-            GameManager.Instance.player4 = GameManager.Instance.player5;
-            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
-            GameManager.Instance.player3 = GameManager.Instance.player4;
-            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
-            GameManager.Instance.player2 = GameManager.Instance.player3;
-            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscorePlayer3;
-            GameManager.Instance.player1 = GameManager.Instance.player2;
-            GameManager.Instance.highscorePlayer1 = GameManager.Instance.highscorePlayer2;
+            GameManager.Instance.player5 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer5 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player4 = GameManager.Instance.player3;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer3;
+            GameManager.Instance.player3 = GameManager.Instance.player2;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer2;
+            GameManager.Instance.player2 = GameManager.Instance.player1;
+            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscorePlayer1;
 
             //Enter a new highscore
             GameManager.Instance.player1 = enteredName.text;
@@ -125,12 +125,12 @@ public class MainManager : MonoBehaviour
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer2)
         {
             //Move previous highscores down
-            GameManager.Instance.player4 = GameManager.Instance.player5;
-            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
-            GameManager.Instance.player3 = GameManager.Instance.player4;
-            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
-            GameManager.Instance.player2 = GameManager.Instance.player3;
-            GameManager.Instance.highscorePlayer2 = GameManager.Instance.highscorePlayer3;
+            GameManager.Instance.player5 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer5 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player4 = GameManager.Instance.player3;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer3;
+            GameManager.Instance.player3 = GameManager.Instance.player2;
+            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer2;
 
             //Enter a new highscore
             GameManager.Instance.player2 = enteredName.text;
@@ -139,10 +139,10 @@ public class MainManager : MonoBehaviour
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer3)
         {
             //Move previous highscores down
-            GameManager.Instance.player4 = GameManager.Instance.player5;
-            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
-            GameManager.Instance.player3 = GameManager.Instance.player4;
-            GameManager.Instance.highscorePlayer3 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player5 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer5 = GameManager.Instance.highscorePlayer4;
+            GameManager.Instance.player4 = GameManager.Instance.player3;
+            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer3;
 
             //Enter a new highscore
             GameManager.Instance.player3 = enteredName.text;
@@ -151,8 +151,8 @@ public class MainManager : MonoBehaviour
         else if (GameManager.Instance.highscore > GameManager.Instance.highscorePlayer4)
         {
             //Move previous highscores down
-            GameManager.Instance.player4 = GameManager.Instance.player5;
-            GameManager.Instance.highscorePlayer4 = GameManager.Instance.highscorePlayer5;
+            GameManager.Instance.player5 = GameManager.Instance.player4;
+            GameManager.Instance.highscorePlayer5 = GameManager.Instance.highscorePlayer4;
 
             //Enter a new highscore
             GameManager.Instance.player4 = enteredName.text;
